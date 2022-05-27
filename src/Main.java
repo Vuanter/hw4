@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         // Задание 1
@@ -10,16 +12,14 @@ public class Main {
         // 10 9 8 7 6 5 4 3 2 1
 
         int start = 0;
-        while (start <=10) {
-            System.out.print(start + " ");
-            start ++;
+
+        while (start <10) {
+            System.out.print(++start + " ");
     }
         System.out.println();
 
-        int start1 = 10;
-        while (start1 >= 0) {
-            System.out.print(start1 + " ");
-            start1 --;
+        for (; start > 0; start --) {
+            System.out.print(start + " ");
         }
         System.out.println();
         // Задание 2
@@ -46,14 +46,15 @@ public class Main {
         // которые содержат год за 200 лет до текущего (из созданной ранее переменной) в качестве старта и 100 лет
         // после в качестве завершения периода расчета.
 
-        for (int i = 0; i <=2022 ; i = i + 79) {
-            System.out.println("Комета пролетала в " + i + " году");
+        int currentYear = LocalDate.now().getYear();
+
+        int start2 = currentYear - 200;
+        int end = currentYear + 100;
+
+        for (int year = start2; year<=end; year++) {
+            if (year % 79 == 0) {
+                System.out.println(year);
+            }
         }
-        int a = 79;
-        int b = 1975;
-        int c = a + b;
-        System.out.println("Комета пролетит в " + c);
-
-
     }
 }
